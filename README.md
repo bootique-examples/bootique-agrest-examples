@@ -1,8 +1,9 @@
 [![Build Status](https://travis-ci.org/andrus/linkrest-bootique.svg)](https://travis-ci.org/andrus/linkrest-bootique)
 
-# linkrest-bootique
+# bootique-linkrest-demo
 
-A simple example of running a [LinkRest](http://nhl.github.io/link-rest/) app on [Bootique](http://bootique.io). Prerequisites:
+A simple example of running a [LinkRest](http://linkrest.io) / [Apache Cayenne](http://cayenne.apache.org/) app
+on [Bootique](http://bootique.io). Prerequisites:
 
 * Java 1.8 or newer.
 * Apache Maven.
