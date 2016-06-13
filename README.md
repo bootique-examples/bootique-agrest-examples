@@ -3,7 +3,12 @@
 # bootique-linkrest-demo
 
 A simple example of running a [LinkRest](http://linkrest.io) / [Apache Cayenne](http://cayenne.apache.org/) app
-on [Bootique](http://bootique.io). Prerequisites:
+on [Bootique](http://bootique.io).
+
+*For additional help/questions about this demo send a message to
+[Bootique forum](https://groups.google.com/forum/#!forum/bootique-user).*
+
+Prerequisites:
 
 * Java 1.8 or newer.
 * Apache Maven.
