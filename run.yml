@@ -1,7 +1,8 @@
 jdbc:
   derby:
     url: jdbc:derby:target/demodb;create=true
-    driver: org.apache.derby.jdbc.EmbeddedDriver
+    driverClassName: org.apache.derby.jdbc.EmbeddedDriver
+    initialSize: 1
 
 cayenne:
   datasource: derby

@@ -11,7 +11,7 @@
 
     <groupId>org.objectstyle.bootique.linkrest</groupId>
     <artifactId>bootique-linkrest-demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Bootique + LinkRest Demo</name>
