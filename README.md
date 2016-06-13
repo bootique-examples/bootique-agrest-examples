@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/andrus/linkrest-bootique.svg)](https://travis-ci.org/andrus/linkrest-bootique)
+[![Build Status](https://travis-ci.org/bootique-examples/bootique-linkrest-demo.svg)](https://travis-ci.org/bootique-examples/bootique-linkrest-demo)
 
 # bootique-linkrest-demo
 
