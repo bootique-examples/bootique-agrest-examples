@@ -8,3 +8,4 @@ branches:
     - master
 
 script: mvn clean javadoc:javadoc source:jar verify
+
