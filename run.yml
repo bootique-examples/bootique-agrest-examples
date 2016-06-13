@@ -1,0 +1,8 @@
+jdbc:
+  derby:
+    url: jdbc:derby:target/demodb;create=true
+    driver: org.apache.derby.jdbc.EmbeddedDriver
+
+cayenne:
+  datasource: derby
+  createSchema: true
