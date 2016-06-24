@@ -3,7 +3,7 @@
 	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	 xsi:schemaLocation="http://cayenne.apache.org/schema/7/modelMap http://cayenne.apache.org/schema/7/modelMap.xsd"
 	 project-version="7">
-	<property name="defaultPackage" value="org.objectstyle.bootique.linkrest.cayenne"/>
+	<property name="defaultPackage" value="io.bootique.linkrest.demo.cayenne"/>
 	<property name="quoteSqlIdentifiers" value="true"/>
 	<db-entity name="article">
 		<db-attribute name="body" type="LONGVARCHAR" length="16777215"/>
@@ -22,17 +22,17 @@
 		<db-attribute name="id" type="BIGINT" isPrimaryKey="true" isGenerated="true" isMandatory="true"/>
 		<db-attribute name="name" type="VARCHAR" length="200"/>
 	</db-entity>
-	<obj-entity name="Article" className="org.objectstyle.bootique.linkrest.cayenne.Article" dbEntityName="article">
+	<obj-entity name="Article" className="io.bootique.linkrest.demo.cayenne.Article" dbEntityName="article">
 		<obj-attribute name="body" type="java.lang.String" db-attribute-path="body"/>
 		<obj-attribute name="publishedOn" type="java.util.Date" db-attribute-path="published_on"/>
 		<obj-attribute name="title" type="java.lang.String" db-attribute-path="title"/>
 		<post-add method-name="onPostAdd"/>
 	</obj-entity>
-	<obj-entity name="Domain" className="org.objectstyle.bootique.linkrest.cayenne.Domain" dbEntityName="domain">
+	<obj-entity name="Domain" className="io.bootique.linkrest.demo.cayenne.Domain" dbEntityName="domain">
 		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
 		<obj-attribute name="vhost" type="java.lang.String" db-attribute-path="vhost"/>
 	</obj-entity>
-	<obj-entity name="Tag" className="org.objectstyle.bootique.linkrest.cayenne.Tag" dbEntityName="tag">
+	<obj-entity name="Tag" className="io.bootique.linkrest.demo.cayenne.Tag" dbEntityName="tag">
 		<obj-attribute name="name" type="java.lang.String" db-attribute-path="name"/>
 	</obj-entity>
 	<db-relationship name="domain" source="article" target="domain" toMany="false">

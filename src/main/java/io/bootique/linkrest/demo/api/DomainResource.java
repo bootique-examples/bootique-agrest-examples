@@ -1,4 +1,4 @@
-package org.objectstyle.bootique.linkrest.api;
+package io.bootique.linkrest.demo.api;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -11,7 +11,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
 
-import org.objectstyle.bootique.linkrest.cayenne.Domain;
+import io.bootique.linkrest.demo.cayenne.Domain;
 
 import com.nhl.link.rest.DataResponse;
 import com.nhl.link.rest.LinkRest;

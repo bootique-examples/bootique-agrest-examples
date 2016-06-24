@@ -1,8 +1,8 @@
-package org.objectstyle.bootique.linkrest.cayenne;
+package io.bootique.linkrest.demo.cayenne;
 
 import java.util.Date;
 
-import org.objectstyle.bootique.linkrest.cayenne.auto._Article;
+import io.bootique.linkrest.demo.cayenne.auto._Article;
 
 public class Article extends _Article {
 

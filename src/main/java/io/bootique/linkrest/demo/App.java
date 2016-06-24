@@ -1,7 +1,7 @@
-package org.objectstyle.bootique.linkrest;
+package io.bootique.linkrest.demo;
 
 import com.google.inject.Binder;
-import org.objectstyle.bootique.linkrest.api.DomainResource;
+import io.bootique.linkrest.demo.api.DomainResource;
 
 import com.google.inject.Module;
 import com.nhl.bootique.Bootique;
