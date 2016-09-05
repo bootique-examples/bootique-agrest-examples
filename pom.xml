@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.nhl.bootique.parent</groupId>
+        <groupId>io.bootique.parent</groupId>
         <artifactId>bootique-parent</artifactId>
-        <version>0.10</version>
+        <version>0.12</version>
     </parent>
 
     <groupId>io.bootique.linkrest</groupId>
@@ -27,9 +27,9 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.nhl.bootique.bom</groupId>
+                <groupId>io.bootique.bom</groupId>
                 <artifactId>bootique-bom</artifactId>
-                <version>0.17</version>
+                <version>0.19</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -43,15 +43,15 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.nhl.bootique</groupId>
+            <groupId>io.bootique</groupId>
             <artifactId>bootique</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.nhl.bootique.linkrest</groupId>
+            <groupId>io.bootique.linkrest</groupId>
             <artifactId>bootique-linkrest</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.nhl.bootique.logback</groupId>
+            <groupId>io.bootique.logback</groupId>
             <artifactId>bootique-logback</artifactId>
         </dependency>
 

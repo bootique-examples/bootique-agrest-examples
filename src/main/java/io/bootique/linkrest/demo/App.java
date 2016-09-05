@@ -1,11 +1,10 @@
 package io.bootique.linkrest.demo;
 
 import com.google.inject.Binder;
-import io.bootique.linkrest.demo.api.DomainResource;
-
 import com.google.inject.Module;
-import com.nhl.bootique.Bootique;
-import com.nhl.bootique.jersey.JerseyModule;
+import io.bootique.Bootique;
+import io.bootique.jersey.JerseyModule;
+import io.bootique.linkrest.demo.api.DomainResource;
 
 /**
  * A runnable Bootique + LinkRest + Cayenne application.
