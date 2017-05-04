@@ -36,14 +36,14 @@ public class ArticleSubResource {
 	@GET
 	public DataResponse<Article> getAll(@Context UriInfo uriInfo) {
 		return LinkRest.select(Article.class, config).toManyParent(Domain.class, domainId, Domain.ARTICLES).uri(uriInfo)
-				.select();
+				.get();
 	}
 
 	@GET
 	@Path("{articleId}")
 	public DataResponse<Article> getOne(@PathParam("articleId") int id, @Context UriInfo uriInfo) {
 		return LinkRest.select(Article.class, config).toManyParent(Domain.class, domainId, Domain.ARTICLES).byId(id)
-				.uri(uriInfo).select();
+				.uri(uriInfo).get();
 	}
 
 	@POST

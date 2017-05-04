@@ -26,13 +26,13 @@ public class DomainResource {
 
 	@GET
 	public DataResponse<Domain> getAll(@Context UriInfo uriInfo) {
-		return LinkRest.select(Domain.class, config).uri(uriInfo).select();
+		return LinkRest.select(Domain.class, config).uri(uriInfo).get();
 	}
 
 	@GET
 	@Path("{domainId}")
 	public DataResponse<Domain> getOne(@PathParam("domainId") int id, @Context UriInfo uriInfo) {
-		return LinkRest.select(Domain.class, config).byId(id).uri(uriInfo).selectOne();
+		return LinkRest.select(Domain.class, config).byId(id).uri(uriInfo).getOne();
 	}
 
 	@POST

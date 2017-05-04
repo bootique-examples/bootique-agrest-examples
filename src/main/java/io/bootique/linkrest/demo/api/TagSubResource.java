@@ -33,14 +33,14 @@ public class TagSubResource {
 	@GET
 	public DataResponse<Tag> getAll(@Context UriInfo uriInfo) {
 		return LinkRest.select(Tag.class, config).toManyParent(Article.class, articleId, Article.TAGS).uri(uriInfo)
-				.select();
+				.get();
 	}
 
 	@GET
 	@Path("{tagId}")
 	public DataResponse<Tag> getOne(@PathParam("tagId") int id, @Context UriInfo uriInfo) {
 		return LinkRest.select(Tag.class, config).toManyParent(Article.class, articleId, Article.TAGS).byId(id)
-				.uri(uriInfo).select();
+				.uri(uriInfo).get();
 	}
 
 	@POST
