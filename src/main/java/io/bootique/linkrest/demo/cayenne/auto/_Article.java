@@ -3,9 +3,10 @@ package io.bootique.linkrest.demo.cayenne.auto;
 import java.util.Date;
 import java.util.List;
 
-import io.bootique.linkrest.demo.cayenne.Domain;
 import org.apache.cayenne.CayenneDataObject;
 import org.apache.cayenne.exp.Property;
+
+import io.bootique.linkrest.demo.cayenne.Domain;
 import io.bootique.linkrest.demo.cayenne.Tag;
 
 /**
@@ -20,11 +21,11 @@ public abstract class _Article extends CayenneDataObject {
 
     public static final String ID_PK_COLUMN = "id";
 
-    public static final Property<String> BODY = new Property<String>("body");
-    public static final Property<Date> PUBLISHED_ON = new Property<Date>("publishedOn");
-    public static final Property<String> TITLE = new Property<String>("title");
-    public static final Property<Domain> DOMAIN = new Property<Domain>("domain");
-    public static final Property<List<Tag>> TAGS = new Property<List<Tag>>("tags");
+    public static final Property<String> BODY = Property.create("body", String.class);
+    public static final Property<Date> PUBLISHED_ON = Property.create("publishedOn", Date.class);
+    public static final Property<String> TITLE = Property.create("title", String.class);
+    public static final Property<Domain> DOMAIN = Property.create("domain", Domain.class);
+    public static final Property<List<Tag>> TAGS = Property.create("tags", List.class);
 
     public void setBody(String body) {
         writeProperty("body", body);

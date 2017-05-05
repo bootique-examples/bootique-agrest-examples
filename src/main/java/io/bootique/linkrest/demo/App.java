@@ -19,6 +19,7 @@ public class App implements Module {
     public void configure(Binder binder) {
 
         // add all classes in DomainResource's class package as REST API resources
-        JerseyModule.contributePackages(binder).addBinding().toInstance(DomainResource.class.getPackage());
+        JerseyModule.extend(binder).addPackage(DomainResource.class.getPackage());
+
     }
 }

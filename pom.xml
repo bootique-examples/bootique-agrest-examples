@@ -29,7 +29,7 @@
             <dependency>
                 <groupId>io.bootique.bom</groupId>
                 <artifactId>bootique-bom</artifactId>
-                <version>0.19</version>
+                <version>0.22</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
