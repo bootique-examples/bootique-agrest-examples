@@ -12,7 +12,7 @@ import io.bootique.linkrest.demo.api.DomainResource;
 public class App implements Module {
 
     public static void main(String[] args) throws Exception {
-        Bootique.app(args).module(App.class).autoLoadModules().run();
+        Bootique.app(args).module(App.class).autoLoadModules().exec().exit();
     }
 
     @Override
