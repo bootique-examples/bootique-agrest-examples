@@ -1,6 +1,6 @@
-package io.bootique.linkrest.demo.cayenne;
+package io.bootique.agrest.demo.cayenne;
 
-import io.bootique.linkrest.demo.cayenne.auto._Domain;
+import io.bootique.agrest.demo.cayenne.auto._Domain;
 
 public class Domain extends _Domain {
 

@@ -1,13 +1,13 @@
-package io.bootique.linkrest.demo;
+package io.bootique.agrest.demo;
 
 import com.google.inject.Binder;
 import com.google.inject.Module;
 import io.bootique.Bootique;
+import io.bootique.agrest.demo.api.DomainResource;
 import io.bootique.jersey.JerseyModule;
-import io.bootique.linkrest.demo.api.DomainResource;
 
 /**
- * A runnable Bootique + LinkRest + Cayenne application.
+ * A runnable Bootique + Agrest + Cayenne application.
  */
 public class App implements Module {
 

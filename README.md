@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/bootique-examples/bootique-linkrest-demo.svg)](https://travis-ci.org/bootique-examples/bootique-linkrest-demo)
+[![Build Status](https://travis-ci.org/bootique-examples/bootique-agrest-demo.svg)](https://travis-ci.org/bootique-examples/bootique-linkrest-demo)
 
-# bootique-linkrest-demo
+# bootique-agrest-demo
 
-A simple example of running a [LinkRest](http://linkrest.io) / [Apache Cayenne](http://cayenne.apache.org/) app
+A simple example of running a [Agrest](http://agrest.io) / [Apache Cayenne](http://cayenne.apache.org/) app
 on [Bootique](http://bootique.io).
 
 *For additional help/questions about this demo send a message to
@@ -15,10 +15,10 @@ Prerequisites:
 
 Here is how to run it:
 
-	git clone git@github.com:bootique-examples/bootique-linkrest-demo.git
-	cd bootique-linkrest-demo
+	git clone git@github.com:bootique-examples/bootique-agrest-demo.git
+	cd bootique-agrest-demo
 	mvn package
-	java -jar target/bootique-linkrest-demo-1.0-SNAPSHOT.jar --server --config=run.yml
+	java -jar target/bootique-agrest-demo-1.0-SNAPSHOT.jar --server --config=run.yml
 
 Resources:
 
@@ -39,18 +39,18 @@ Sample Operations:
     curl -i -X GET  'http://127.0.0.1:8080/domain?include=%7B%22path%22%3A%22articles%22%2C%22sort%22%3A%22publishedOn%22%7D&exclude=articles.body'
          
     curl -i -X PUT 'http://127.0.0.1:8080/domain' \
-         -d '{"id":1, "name":"My Site about LinkRest"}'
+         -d '{"id":1, "name":"My Site about Agrest"}'
 
     curl -i -X GET 'http://127.0.0.1:8080/domain/1/articles'
     curl -i -X GET 'http://127.0.0.1:8080/domain/1/articles?include=domain'
-    
+
     curl -i -X POST 'http://127.0.0.1:8080/domain/1/articles' \
-         -d '[
-              {"title":"LinkRest Presentation","body":"Here is how to use LinkRest"},
-              {"title":"Cayenne Goodies", "body":"This is an article about Apache Cayenne"}
-             ]'
+            -d '[
+                 {"title":"Agrest Presentation","body":"Here is how to use Agrest"},
+                 {"title":"Cayenne Goodies", "body":"This is an article about Apache Cayenne"}
+                ]'
              
     curl -i -X PUT 'http://127.0.0.1:8080/domain/1/articles' \
-         -d '{"id":1,"title":"LinkRest latest Presentation"}'
+         -d '{"id":1,"title":"Agrest latest Presentation"}'
          
     curl -i -X DELETE 'http://127.0.0.1:8080/domain/1/articles/1'
