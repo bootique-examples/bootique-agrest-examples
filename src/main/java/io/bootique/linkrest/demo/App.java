@@ -11,15 +11,18 @@ import io.bootique.linkrest.demo.api.DomainResource;
  */
 public class App implements Module {
 
-    public static void main(String[] args) throws Exception {
-        Bootique.app(args).module(App.class).autoLoadModules().exec().exit();
+    public static void main(String[] args) {
+        Bootique.app(args)
+                .autoLoadModules()
+                .module(App.class)
+                .exec()
+                .exit();
     }
 
     @Override
     public void configure(Binder binder) {
-
         // add all classes in DomainResource's class package as REST API resources
-        JerseyModule.extend(binder).addPackage(DomainResource.class.getPackage());
-
+        JerseyModule.extend(binder)
+                .addPackage(DomainResource.class.getPackage());
     }
 }
