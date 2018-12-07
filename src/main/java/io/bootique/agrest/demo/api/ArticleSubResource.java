@@ -1,4 +1,4 @@
-package io.bootique.linkrest.demo.api;
+package io.bootique.agrest.demo.api;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -12,12 +12,11 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
 
-import io.bootique.linkrest.demo.cayenne.Article;
-import io.bootique.linkrest.demo.cayenne.Domain;
-
-import com.nhl.link.rest.DataResponse;
-import com.nhl.link.rest.LinkRest;
-import com.nhl.link.rest.SimpleResponse;
+import io.agrest.Ag;
+import io.agrest.DataResponse;
+import io.agrest.SimpleResponse;
+import io.bootique.agrest.demo.cayenne.Article;
+import io.bootique.agrest.demo.cayenne.Domain;
 
 /**
  * A sub-resource executed in a context of a given Domain ID.
@@ -35,32 +34,32 @@ public class ArticleSubResource {
 
 	@GET
 	public DataResponse<Article> getAll(@Context UriInfo uriInfo) {
-		return LinkRest.select(Article.class, config).toManyParent(Domain.class, domainId, Domain.ARTICLES).uri(uriInfo)
+		return Ag.select(Article.class, config).toManyParent(Domain.class, domainId, Domain.ARTICLES).uri(uriInfo)
 				.get();
 	}
 
 	@GET
 	@Path("{articleId}")
 	public DataResponse<Article> getOne(@PathParam("articleId") int id, @Context UriInfo uriInfo) {
-		return LinkRest.select(Article.class, config).toManyParent(Domain.class, domainId, Domain.ARTICLES).byId(id)
+		return Ag.select(Article.class, config).toManyParent(Domain.class, domainId, Domain.ARTICLES).byId(id)
 				.uri(uriInfo).get();
 	}
 
 	@POST
 	public SimpleResponse create(String data) {
-		return LinkRest.create(Article.class, config).toManyParent(Domain.class, domainId, Domain.ARTICLES).sync(data);
+		return Ag.create(Article.class, config).toManyParent(Domain.class, domainId, Domain.ARTICLES).sync(data);
 	}
 
 	@PUT
 	public SimpleResponse createOrUpdate(String data) {
-		return LinkRest.createOrUpdate(Article.class, config).toManyParent(Domain.class, domainId, Domain.ARTICLES)
+		return Ag.createOrUpdate(Article.class, config).toManyParent(Domain.class, domainId, Domain.ARTICLES)
 				.sync(data);
 	}
 
 	@DELETE
 	@Path("{articleId}")
 	public SimpleResponse delete(@PathParam("articleId") int id) {
-		return LinkRest.delete(Article.class, config).toManyParent(Domain.class, domainId, Domain.ARTICLES).id(id)
+		return Ag.delete(Article.class, config).toManyParent(Domain.class, domainId, Domain.ARTICLES).id(id)
 				.delete();
 	}
 

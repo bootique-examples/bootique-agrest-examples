@@ -1,4 +1,4 @@
-package io.bootique.linkrest.demo.api;
+package io.bootique.agrest.demo.api;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -11,11 +11,10 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
 
-import io.bootique.linkrest.demo.cayenne.Domain;
-
-import com.nhl.link.rest.DataResponse;
-import com.nhl.link.rest.LinkRest;
-import com.nhl.link.rest.SimpleResponse;
+import io.agrest.Ag;
+import io.agrest.DataResponse;
+import io.agrest.SimpleResponse;
+import io.bootique.agrest.demo.cayenne.Domain;
 
 @Path("domain")
 @Produces(MediaType.APPLICATION_JSON)
@@ -26,13 +25,13 @@ public class DomainResource {
 
 	@GET
 	public DataResponse<Domain> getAll(@Context UriInfo uriInfo) {
-		return LinkRest.select(Domain.class, config).uri(uriInfo).get();
+		return Ag.select(Domain.class, config).uri(uriInfo).get();
 	}
 
 	@GET
 	@Path("{domainId}")
 	public DataResponse<Domain> getOne(@PathParam("domainId") int id, @Context UriInfo uriInfo) {
-		return LinkRest.select(Domain.class, config).byId(id).uri(uriInfo).getOne();
+		return Ag.select(Domain.class, config).byId(id).uri(uriInfo).getOne();
 	}
 
 	@POST
@@ -40,17 +39,17 @@ public class DomainResource {
 
 		// 'data' is a single object or an array of objects..
 
-		return LinkRest.create(Domain.class, config).sync(data);
+		return Ag.create(Domain.class, config).sync(data);
 	}
 
 	@PUT
 	public SimpleResponse createOrUpdate(String data) {
 
 		// 'data' is a single object or an array of objects... Objects without
-		// IDs will be treated as "new". LinkRest will try to locate objects
+		// IDs will be treated as "new". Agrest will try to locate objects
 		// with IDs, and update them if found, or create if not
 
-		return LinkRest.createOrUpdate(Domain.class, config).sync(data);
+		return Ag.createOrUpdate(Domain.class, config).sync(data);
 	}
 
 	/**
