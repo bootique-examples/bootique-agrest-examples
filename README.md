@@ -18,7 +18,7 @@ Here is how to run it:
 	git clone git@github.com:bootique-examples/bootique-agrest-demo.git
 	cd bootique-agrest-demo
 	mvn package
-	java -jar target/bootique-agrest-demo-1.0-SNAPSHOT.jar --server --config=run.yml
+	java -jar target/bootique-agrest-demo-2.0.jar --server --config=run.yml
 
 Resources:
 

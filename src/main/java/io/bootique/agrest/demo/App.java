@@ -1,15 +1,15 @@
 package io.bootique.agrest.demo;
 
-import com.google.inject.Binder;
-import com.google.inject.Module;
+import io.bootique.BaseModule;
 import io.bootique.Bootique;
 import io.bootique.agrest.demo.api.DomainResource;
+import io.bootique.di.Binder;
 import io.bootique.jersey.JerseyModule;
 
 /**
  * A runnable Bootique + Agrest + Cayenne application.
  */
-public class App implements Module {
+public class App extends BaseModule {
 
     public static void main(String[] args) {
         Bootique.app(args)
