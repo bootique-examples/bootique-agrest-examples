@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/bootique-examples/bootique-agrest-demo.svg)](https://travis-ci.org/bootique-examples/bootique-linkrest-demo)
+[![verify](https://github.com/bootique-examples/bootique-agrest-demo/actions/workflows/verify.yml/badge.svg)](https://github.com/bootique-examples/bootique-agrest-demo/actions/workflows/verify.yml)
 
 # bootique-agrest-demo
 
