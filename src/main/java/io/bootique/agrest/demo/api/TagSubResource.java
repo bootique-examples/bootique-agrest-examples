@@ -31,32 +31,32 @@ public class TagSubResource {
 
 	@GET
 	public DataResponse<Tag> getAll(@Context UriInfo uriInfo) {
-		return Ag.select(Tag.class, config).toManyParent(Article.class, articleId, Article.TAGS).uri(uriInfo)
+		return Ag.select(Tag.class, config).parent(Article.class, articleId, String.valueOf(Article.TAGS)).uri(uriInfo)
 				.get();
 	}
 
 	@GET
 	@Path("{tagId}")
 	public DataResponse<Tag> getOne(@PathParam("tagId") int id, @Context UriInfo uriInfo) {
-		return Ag.select(Tag.class, config).toManyParent(Article.class, articleId, Article.TAGS).byId(id)
+		return Ag.select(Tag.class, config).parent(Article.class, articleId, String.valueOf(Article.TAGS)).byId(id)
 				.uri(uriInfo).get();
 	}
 
 	@POST
 	public SimpleResponse create(String data) {
-		return Ag.create(Tag.class, config).toManyParent(Article.class, articleId, Article.TAGS).sync(data);
+		return Ag.create(Tag.class, config).parent(Article.class, articleId, String.valueOf(Article.TAGS)).sync(data);
 	}
 
 	@PUT
 	public SimpleResponse createOrUpdate(String data) {
-		return Ag.createOrUpdate(Tag.class, config).toManyParent(Article.class, articleId, Article.TAGS)
+		return Ag.createOrUpdate(Tag.class, config).parent(Article.class, articleId, String.valueOf(Article.TAGS))
 				.sync(data);
 	}
 
 	@DELETE
 	@Path("{tagId}")
 	public SimpleResponse delete(@PathParam("articleId") int id) {
-		return Ag.delete(Tag.class, config).toManyParent(Article.class, articleId, Article.TAGS).id(id).delete();
+		return Ag.delete(Tag.class, config).parent(Article.class, articleId, String.valueOf(Article.TAGS)).id(id).delete();
 	}
 
 }

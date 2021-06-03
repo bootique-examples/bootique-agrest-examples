@@ -34,32 +34,32 @@ public class ArticleSubResource {
 
 	@GET
 	public DataResponse<Article> getAll(@Context UriInfo uriInfo) {
-		return Ag.select(Article.class, config).toManyParent(Domain.class, domainId, Domain.ARTICLES).uri(uriInfo)
+		return Ag.select(Article.class, config).parent(Domain.class, domainId, String.valueOf(Domain.ARTICLES)).uri(uriInfo)
 				.get();
 	}
 
 	@GET
 	@Path("{articleId}")
 	public DataResponse<Article> getOne(@PathParam("articleId") int id, @Context UriInfo uriInfo) {
-		return Ag.select(Article.class, config).toManyParent(Domain.class, domainId, Domain.ARTICLES).byId(id)
+		return Ag.select(Article.class, config).parent(Domain.class, domainId, String.valueOf(Domain.ARTICLES)).byId(id)
 				.uri(uriInfo).get();
 	}
 
 	@POST
 	public SimpleResponse create(String data) {
-		return Ag.create(Article.class, config).toManyParent(Domain.class, domainId, Domain.ARTICLES).sync(data);
+		return Ag.create(Article.class, config).parent(Domain.class, domainId, String.valueOf(Domain.ARTICLES)).sync(data);
 	}
 
 	@PUT
 	public SimpleResponse createOrUpdate(String data) {
-		return Ag.createOrUpdate(Article.class, config).toManyParent(Domain.class, domainId, Domain.ARTICLES)
+		return Ag.createOrUpdate(Article.class, config).parent(Domain.class, domainId, String.valueOf(Domain.ARTICLES))
 				.sync(data);
 	}
 
 	@DELETE
 	@Path("{articleId}")
 	public SimpleResponse delete(@PathParam("articleId") int id) {
-		return Ag.delete(Article.class, config).toManyParent(Domain.class, domainId, Domain.ARTICLES).id(id)
+		return Ag.delete(Article.class, config).parent(Domain.class, domainId, String.valueOf(Domain.ARTICLES)).id(id)
 				.delete();
 	}
 
