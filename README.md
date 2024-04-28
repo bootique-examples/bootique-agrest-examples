@@ -22,8 +22,8 @@ and then follow these steps:
 
 ## Checkout
 ```
-git clone git@github.com:bootique-examples/bootique-jdbc-examples.git
-cd bootique-jdbc-examples
+git clone git@github.com:bootique-examples/bootique-agrest-examples.git
+cd bootique-agrest-examples
 ```
 
 ## Build, test and package
