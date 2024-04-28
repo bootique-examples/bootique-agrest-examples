@@ -1,20 +1,19 @@
-package io.bootique.agrest.demo.api;
+package io.bootique.examples.agrest.api;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.Configuration;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.UriInfo;
-
-import io.agrest.Ag;
 import io.agrest.DataResponse;
 import io.agrest.SimpleResponse;
-import io.bootique.agrest.demo.cayenne.Domain;
+import io.agrest.jaxrs3.AgJaxrs;
+import io.bootique.examples.agrest.cayenne.Domain;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.Configuration;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.UriInfo;
 
 @Path("domain")
 @Produces(MediaType.APPLICATION_JSON)
@@ -25,13 +24,13 @@ public class DomainResource {
 
 	@GET
 	public DataResponse<Domain> getAll(@Context UriInfo uriInfo) {
-		return Ag.select(Domain.class, config).uri(uriInfo).get();
+		return AgJaxrs.select(Domain.class, config).clientParams(uriInfo.getQueryParameters()).get();
 	}
 
 	@GET
 	@Path("{domainId}")
 	public DataResponse<Domain> getOne(@PathParam("domainId") int id, @Context UriInfo uriInfo) {
-		return Ag.select(Domain.class, config).byId(id).uri(uriInfo).getOne();
+		return AgJaxrs.select(Domain.class, config).byId(id).clientParams(uriInfo.getQueryParameters()).getOne();
 	}
 
 	@POST
@@ -39,7 +38,7 @@ public class DomainResource {
 
 		// 'data' is a single object or an array of objects..
 
-		return Ag.create(Domain.class, config).sync(data);
+		return AgJaxrs.create(Domain.class, config).sync(data);
 	}
 
 	@PUT
@@ -49,7 +48,7 @@ public class DomainResource {
 		// IDs will be treated as "new". Agrest will try to locate objects
 		// with IDs, and update them if found, or create if not
 
-		return Ag.createOrUpdate(Domain.class, config).sync(data);
+		return AgJaxrs.createOrUpdate(Domain.class, config).sync(data);
 	}
 
 	/**

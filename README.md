@@ -1,30 +1,54 @@
-[![verify](https://github.com/bootique-examples/bootique-agrest-demo/actions/workflows/verify.yml/badge.svg)](https://github.com/bootique-examples/bootique-agrest-demo/actions/workflows/verify.yml)
+[![verify](https://github.com/bootique-examples/bootique-agrest-examples/actions/workflows/verify.yml/badge.svg)](https://github.com/bootique-examples/bootique-agrest-examples/actions/workflows/verify.yml)
 
-# bootique-agrest-demo
+# Bootique 3.x Agrest Examples
 
-A simple example of running a [Agrest](http://agrest.io) / [Apache Cayenne](http://cayenne.apache.org/) app
-on [Bootique](http://bootique.io).
+A simple example of running a [Agrest](http://agrest.io) / [Apache Cayenne](http://cayenne.apache.org/) app on [Bootique](http://bootique.io).
 
-*For additional help/questions about this demo send a message to
-[Bootique forum](https://groups.google.com/forum/#!forum/bootique-user).*
 
-You can find different versions of framework in use at
-* [1.x](https://github.com/bootique-examples/bootique-agrest-demo/tree/1.x)
-* [2.x](https://github.com/bootique-examples/bootique-agrest-demo/tree/2.x)
+Different Git branches contain example code for different versions of Bootique:
+* [3.x](https://github.com/bootique-examples/bootique-agrest-examples/tree/3.x)
+* [2.x](https://github.com/bootique-examples/bootique-agrest-examples/tree/2.x)
+* [1.x](https://github.com/bootique-examples/bootique-agrest-examples/tree/1.x)
 
-Prerequisites:
+## Prerequisites
 
-* Java 1.8 or newer.
-* Apache Maven.
+To build and run the project, ensure you have the following installed on your machine:
 
-Here is how to run it:
+* Docker
+* Java 11 or newer
+* Maven
 
-	git clone git@github.com:bootique-examples/bootique-agrest-demo.git
-	cd bootique-agrest-demo
-	mvn package
-	java -jar target/bootique-agrest-demo-1.0-SNAPSHOT.jar --server --config=run.yml
+and then follow these steps:
 
-Resources:
+## Checkout
+```
+git clone git@github.com:bootique-examples/bootique-jdbc-examples.git
+cd bootique-jdbc-examples
+```
+
+## Build, test and package
+
+Run the following command to build the code, run the tests and package the app:
+```
+mvn clean package
+```
+This project uses a [runnable jar with lib folder](https://bootique.io/docs/3.x/bootique-docs/#runnable-jar-with-lib)
+packaging recipe, so now the app is packaged for distribution as `target/bootique-agrest-examples-3.0.tar.gz` archive.
+But there is also the "unpacked" version in the `target` folder that can be used to run the app.
+
+## Run
+
+The following command prints a help message with supported options:
+```bash  
+java -jar target/bootique-agrest-examples-3.0.jar
+```
+
+The following command starts the Agrest REST server with an embedded Derby DB:
+```bash 
+java -jar target/bootique-agrest-examples-3.0.jar --server --config=config.yml
+```
+
+The app exposes the following resources:
 
 	http://127.0.0.1:8080/domain
 	http://127.0.0.1:8080/domain/{domainId}

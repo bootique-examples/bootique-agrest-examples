@@ -3,21 +3,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>io.bootique.parent</groupId>
-        <artifactId>bootique-parent</artifactId>
-        <version>0.13</version>
-    </parent>
-
     <groupId>io.bootique.agrest</groupId>
-    <artifactId>bootique-agrest-demo</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>bootique-agrest-examples</artifactId>
+    <version>3.0</version>
     <packaging>jar</packaging>
 
     <name>Bootique + Agrest Demo</name>
 
     <properties>
-        <main.class>io.bootique.agrest.demo.App</main.class>
+        <maven.compiler.release>11</maven.compiler.release>
+
+        <bootique.version>3.0-M4</bootique.version>
+        <postgres.driver.version>42.7.3</postgres.driver.version>
+        <testcontainers.version>1.19.7</testcontainers.version>
+
+        <main.class>io.bootique.examples.agrest.App</main.class>
     </properties>
 
     <dependencyManagement>
@@ -25,7 +25,7 @@
             <dependency>
                 <groupId>io.bootique.bom</groupId>
                 <artifactId>bootique-bom</artifactId>
-                <version>2.0.B1</version>
+                <version>3.0-M4</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -39,12 +39,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.bootique</groupId>
-            <artifactId>bootique</artifactId>
-        </dependency>
-        <dependency>
             <groupId>io.bootique.agrest</groupId>
-            <artifactId>bootique-agrest</artifactId>
+            <artifactId>bootique-agrest5-jakarta</artifactId>
         </dependency>
         <dependency>
             <groupId>io.bootique.jdbc</groupId>
@@ -60,18 +56,65 @@
             <groupId>org.apache.derby</groupId>
             <artifactId>derby</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.agrest</groupId>
-            <artifactId>agrest</artifactId>
-            <version>4.1</version>
-        </dependency>
 
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-shade-plugin</artifactId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>${main.class}</mainClass>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <useUniqueVersions>false</useUniqueVersions>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <configuration>
+                    <includeScope>runtime</includeScope>
+                    <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>assembly</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.7.1</version>
+                <configuration>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <descriptors>
+                        <descriptor>assembly.xml</descriptor>
+                    </descriptors>
+                    <tarLongFileMode>posix</tarLongFileMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

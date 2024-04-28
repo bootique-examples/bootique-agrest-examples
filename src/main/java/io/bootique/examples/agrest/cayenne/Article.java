@@ -1,8 +1,8 @@
-package io.bootique.agrest.demo.cayenne;
+package io.bootique.examples.agrest.cayenne;
 
 import java.util.Date;
 
-import io.bootique.agrest.demo.cayenne.auto._Article;
+import io.bootique.examples.agrest.cayenne.auto._Article;
 
 public class Article extends _Article {
 

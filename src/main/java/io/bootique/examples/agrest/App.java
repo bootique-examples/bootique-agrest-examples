@@ -1,9 +1,9 @@
-package io.bootique.agrest.demo;
+package io.bootique.examples.agrest;
 
+import io.bootique.BQModule;
 import io.bootique.Bootique;
-import io.bootique.agrest.demo.api.DomainResource;
-import io.bootique.di.BQModule;
 import io.bootique.di.Binder;
+import io.bootique.examples.agrest.api.DomainResource;
 import io.bootique.jersey.JerseyModule;
 
 /**
