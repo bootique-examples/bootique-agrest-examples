@@ -3,3 +3,16 @@ jdbc:
     jdbcUrl: jdbc:postgresql://localhost:15433/postgres
     username: postgres
     password: test
+
+swagger:
+  specs:
+    default:
+      pathJson: "/model/openapi.json"
+      pathYaml: "/model/openapi.yaml"
+      overrideSpec: "classpath:openapi-header.yml"
+      resourcePackages:
+        - "io.bootique.examples.agrest.api"
+
+swaggerui:
+  default:
+    specPath: "model/openapi.json"

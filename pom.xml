@@ -49,6 +49,14 @@
             <artifactId>bootique-logback</artifactId>
         </dependency>
         <dependency>
+            <groupId>io.bootique.agrest</groupId>
+            <artifactId>bootique-agrest5-jakarta-swagger</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.bootique.swagger</groupId>
+            <artifactId>bootique-swagger-jakarta-ui</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
         </dependency>

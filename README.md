@@ -54,14 +54,11 @@ The following command starts the Agrest REST server with an embedded Derby DB:
 java -jar target/bootique-agrest-examples-3.0.jar --server --config=config.yml
 ```
 
-The app exposes the following resources:
+Since the example includes OpenAPI / Swagger integration, now you can see the available endpoints by going to
+http://127.0.0.1:8080/swagger-ui URL. 
 
-* http://127.0.0.1:8080/domain
-* http://127.0.0.1:8080/domain/{domainId}
-* http://127.0.0.1:8080/domain/{domainId}/articles
-* http://127.0.0.1:8080/domain/{domainId}/articles/{articleId}
-
-You can run the following operations to create, update and read the test data:
+You can run the following operations to create, update and read the test data. You can run them from the command
+line, or from the Swagger console in the browser.
 
 ``` 
 curl -i -X POST 'http://127.0.0.1:8080/domain' \

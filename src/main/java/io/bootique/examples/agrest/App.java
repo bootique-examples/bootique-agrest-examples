@@ -2,9 +2,13 @@ package io.bootique.examples.agrest;
 
 import io.bootique.BQModule;
 import io.bootique.Bootique;
+import io.bootique.agrest.v5.swagger.AgrestSwaggerModule;
 import io.bootique.di.Binder;
 import io.bootique.examples.agrest.api.DomainResource;
+import io.bootique.examples.agrest.cayenne.Domain;
 import io.bootique.jersey.JerseyModule;
+
+import java.awt.print.Book;
 
 /**
  * A runnable Bootique + Agrest + Cayenne application.
@@ -21,8 +25,7 @@ public class App implements BQModule {
 
     @Override
     public void configure(Binder binder) {
-        // add all classes in DomainResource's class package as REST API resources
-        JerseyModule.extend(binder)
-                .addPackage(DomainResource.class.getPackage());
+        JerseyModule.extend(binder).addResource(DomainResource.class);
+        AgrestSwaggerModule.extend(binder).entityPackage(Domain.class);
     }
 }
