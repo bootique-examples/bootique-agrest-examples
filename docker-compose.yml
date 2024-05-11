@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+  postgres-agrest:
+    image: postgres:16.2
+    ports:
+      - "15433:5432"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: test
+    volumes:
+      - ./sql/postgres-schema.sql:/docker-entrypoint-initdb.d/postgres-schema.sql

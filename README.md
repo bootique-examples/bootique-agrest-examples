@@ -26,7 +26,16 @@ git clone git@github.com:bootique-examples/bootique-agrest-examples.git
 cd bootique-agrest-examples
 ```
 
-## Build, test and package
+## Start Postgres DB Locally
+
+This starts a Postgres instance listening on port 15432, with login credentials of `postgres` / `test`, and
+creates a simple test schema:
+
+```bash
+docker-compose -f docker-compose.yml up -d
+```
+
+## Build and package
 
 Run the following command to build the code, run the tests and package the app:
 ```
