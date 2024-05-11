@@ -21,8 +21,8 @@ import jakarta.ws.rs.core.UriInfo;
 @Produces(MediaType.APPLICATION_JSON)
 public class TagSubResource {
 
-	private Configuration config;
-	private int articleId;
+	private final Configuration config;
+	private final int articleId;
 
 	public TagSubResource(Configuration config, int articleId) {
 		this.config = config;
@@ -32,7 +32,7 @@ public class TagSubResource {
 	@GET
 	public DataResponse<Tag> getAll(@Context UriInfo uriInfo) {
 		return AgJaxrs.select(Tag.class, config)
-				.parent(Article.class, articleId, String.valueOf(Article.TAGS))
+				.parent(Article.class, articleId, Article.TAGS.getName())
 				.clientParams(uriInfo.getQueryParameters())
 				.get();
 	}
@@ -41,7 +41,7 @@ public class TagSubResource {
 	@Path("{tagId}")
 	public DataResponse<Tag> getOne(@PathParam("tagId") int id, @Context UriInfo uriInfo) {
 		return AgJaxrs.select(Tag.class, config)
-				.parent(Article.class, articleId, String.valueOf(Article.TAGS))
+				.parent(Article.class, articleId, Article.TAGS.getName())
 				.byId(id)
 				.clientParams(uriInfo.getQueryParameters())
 				.get();
@@ -49,13 +49,13 @@ public class TagSubResource {
 
 	@POST
 	public SimpleResponse create(String data) {
-		return AgJaxrs.create(Tag.class, config).parent(Article.class, articleId, String.valueOf(Article.TAGS)).sync(data);
+		return AgJaxrs.create(Tag.class, config).parent(Article.class, articleId, Article.TAGS.getName()).sync(data);
 	}
 
 	@PUT
 	public SimpleResponse createOrUpdate(String data) {
 		return AgJaxrs.createOrUpdate(Tag.class, config)
-				.parent(Article.class, articleId, String.valueOf(Article.TAGS))
+				.parent(Article.class, articleId, Article.TAGS.getName())
 				.sync(data);
 	}
 
@@ -64,8 +64,8 @@ public class TagSubResource {
 	public SimpleResponse delete(@PathParam("articleId") int id) {
 		return AgJaxrs
 				.delete(Tag.class, config)
-				.parent(Article.class, articleId, String.valueOf(Article.TAGS))
-				.id(id)
+				.parent(Article.class, articleId, Article.TAGS.getName())
+				.byId(id)
 				.sync();
 	}
 

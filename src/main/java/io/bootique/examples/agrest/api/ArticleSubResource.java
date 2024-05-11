@@ -23,8 +23,8 @@ import jakarta.ws.rs.core.UriInfo;
 @Produces(MediaType.APPLICATION_JSON)
 public class ArticleSubResource {
 
-	private Configuration config;
-	private int domainId;
+	private final Configuration config;
+	private final int domainId;
 
 	public ArticleSubResource(Configuration config, int domainId) {
 		this.config = config;
@@ -34,7 +34,7 @@ public class ArticleSubResource {
 	@GET
 	public DataResponse<Article> getAll(@Context UriInfo uriInfo) {
 		return AgJaxrs.select(Article.class, config)
-				.parent(Domain.class, domainId, String.valueOf(Domain.ARTICLES))
+				.parent(Domain.class, domainId, Domain.ARTICLES.getName())
 				.clientParams(uriInfo.getQueryParameters())
 				.get();
 	}
@@ -43,20 +43,20 @@ public class ArticleSubResource {
 	@Path("{articleId}")
 	public DataResponse<Article> getOne(@PathParam("articleId") int id, @Context UriInfo uriInfo) {
 		return AgJaxrs.select(Article.class, config)
-				.parent(Domain.class, domainId, String.valueOf(Domain.ARTICLES))
+				.parent(Domain.class, domainId, Domain.ARTICLES.getName())
 				.byId(id)
 				.clientParams(uriInfo.getQueryParameters()).get();
 	}
 
 	@POST
 	public SimpleResponse create(String data) {
-		return AgJaxrs.create(Article.class, config).parent(Domain.class, domainId, String.valueOf(Domain.ARTICLES)).sync(data);
+		return AgJaxrs.create(Article.class, config).parent(Domain.class, domainId, Domain.ARTICLES.getName()).sync(data);
 	}
 
 	@PUT
 	public SimpleResponse createOrUpdate(String data) {
 		return AgJaxrs.createOrUpdate(Article.class, config)
-				.parent(Domain.class, domainId, String.valueOf(Domain.ARTICLES))
+				.parent(Domain.class, domainId, Domain.ARTICLES.getName())
 				.sync(data);
 	}
 
@@ -64,8 +64,8 @@ public class ArticleSubResource {
 	@Path("{articleId}")
 	public SimpleResponse delete(@PathParam("articleId") int id) {
 		return AgJaxrs.delete(Article.class, config)
-				.parent(Domain.class, domainId, String.valueOf(Domain.ARTICLES))
-				.id(id)
+				.parent(Domain.class, domainId, Domain.ARTICLES.getName())
+				.byId(id)
 				.sync();
 	}
 
