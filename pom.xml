@@ -23,7 +23,7 @@
             <dependency>
                 <groupId>io.bootique.bom</groupId>
                 <artifactId>bootique-bom</artifactId>
-                <version>3.0-M4</version>
+                <version>${bootique.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
