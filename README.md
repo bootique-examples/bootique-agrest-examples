@@ -49,7 +49,7 @@ The following command prints a help message with supported options:
 java -jar target/bootique-agrest-examples-3.0.jar
 ```
 
-The following command starts the Agrest REST server with an embedded Derby DB:
+The following command starts the Agrest REST server connected to the PostgreSQL database on Docker:
 ```bash 
 java -jar target/bootique-agrest-examples-3.0.jar --server --config=config.yml
 ```
