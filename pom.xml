@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.bootique.examples.jdbc</groupId>
+    <groupId>io.bootique.examples.agrest</groupId>
     <artifactId>bootique-agrest-examples</artifactId>
     <packaging>jar</packaging>
     <version>3.0</version>
