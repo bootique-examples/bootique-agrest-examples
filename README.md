@@ -1,11 +1,12 @@
 [![verify](https://github.com/bootique-examples/bootique-agrest-examples/actions/workflows/verify.yml/badge.svg)](https://github.com/bootique-examples/bootique-agrest-examples/actions/workflows/verify.yml)
 
-# Bootique 3.x Agrest Examples
+# Bootique 4.x Agrest Examples
 
 A simple example of running a [Agrest](http://agrest.io) / [Apache Cayenne](http://cayenne.apache.org/) app on [Bootique](http://bootique.io).
 
 
 Different Git branches contain example code for different versions of Bootique:
+* [4.x](https://github.com/bootique-examples/bootique-agrest-examples/tree/4.x)
 * [3.x](https://github.com/bootique-examples/bootique-agrest-examples/tree/3.x)
 * [2.x](https://github.com/bootique-examples/bootique-agrest-examples/tree/2.x)
 * [1.x](https://github.com/bootique-examples/bootique-agrest-examples/tree/1.x)
@@ -15,7 +16,7 @@ Different Git branches contain example code for different versions of Bootique:
 To build and run the project, ensure you have the following installed on your machine:
 
 * Docker
-* Java 11 or newer
+* Java 21 or newer
 * Maven
 
 and then follow these steps:
@@ -46,12 +47,12 @@ mvn clean package
 
 The following command prints a help message with supported options:
 ```bash  
-java -jar target/bootique-agrest-examples-3.0.jar
+java -jar target/bootique-agrest-examples-4.0.jar
 ```
 
 The following command starts the Agrest REST server connected to the PostgreSQL database on Docker:
 ```bash 
-java -jar target/bootique-agrest-examples-3.0.jar --server --config=config.yml
+java -jar target/bootique-agrest-examples-4.0.jar --server --config=config.yml
 ```
 
 Since the example includes OpenAPI / Swagger integration, now you can see the available endpoints by going to
