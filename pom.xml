@@ -38,7 +38,7 @@
     <dependencies>
         <dependency>
             <groupId>io.bootique.agrest</groupId>
-            <artifactId>bootique-agrest5-jakarta</artifactId>
+            <artifactId>bootique-agrest5</artifactId>
         </dependency>
         <dependency>
             <groupId>io.bootique.jdbc</groupId>
@@ -50,11 +50,11 @@
         </dependency>
         <dependency>
             <groupId>io.bootique.agrest</groupId>
-            <artifactId>bootique-agrest5-jakarta-swagger</artifactId>
+            <artifactId>bootique-agrest5-swagger</artifactId>
         </dependency>
         <dependency>
             <groupId>io.bootique.swagger</groupId>
-            <artifactId>bootique-swagger-jakarta-ui</artifactId>
+            <artifactId>bootique-swagger-ui</artifactId>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
